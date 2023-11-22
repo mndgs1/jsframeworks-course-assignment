@@ -1,0 +1,47 @@
+{
+    "navigation": [
+        {
+            "id": 1,
+            "label": "Home",
+            "url": "/"
+        },
+        {
+            "id": 2,
+            "label": "About",
+            "url": "/about"
+        },
+        {
+            "id": 3,
+            "label": "Products",
+            "url": "/products"
+        },
+        {
+            "id": 4,
+            "label": "Contact",
+            "url": "/contact"
+        },
+        {
+            "id": 5,
+            "label": "Checkout",
+            "url": "/checkout"
+        }
+    ],
+    "homePage": {
+        "title": "Welcome to Our Website",
+        "description": "We offer the best services in town. Our team is dedicated to providing top-notch solutions."
+    },
+    "aboutPage": {
+        "title": "About Us",
+        "content": "We are a team of passionate individuals committed to delivering excellence in our field. Our journey started in 2020 with a mission to provide quality services."
+    },
+    "contactPage": {
+        "phoneNumber": "+1234567890",
+        "email": "contact@ourwebsite.com",
+        "address": "123, Our Street, Our City, Our Country"
+    },
+    "productPage": {},
+    "checkoutPage": {},
+    "checkoutSuccessPage": {
+        "message": "Thank you for your purchase! Your order has been successfully processed."
+    }
+}
