@@ -1,20 +1,21 @@
 import { useEffect, useState } from "react";
 import { Card } from "../../components";
 import { Product } from "../../interfaces";
+import data from "../../content.json";
 
 export function HomePage() {
     const [products, setProducts] = useState<Product[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(false);
 
+    const { apiEndpoint } = data.products;
+
     useEffect(() => {
         async function getProducts() {
             try {
                 setIsLoading(true);
                 setIsError(false);
-                const response = await fetch(
-                    "https://api.noroff.dev/api/v1/online-shop"
-                );
+                const response = await fetch(apiEndpoint);
                 const json = await response.json();
 
                 setProducts(json);

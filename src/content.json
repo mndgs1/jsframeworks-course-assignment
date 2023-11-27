@@ -26,6 +26,28 @@
             "url": "/checkout"
         }
     ],
+    "products": {
+        "apiEndpoint": "https://api.noroff.dev/api/v1/online-shop",
+        "apiStructure": {
+            "id": "number",
+            "title": "string",
+            "description": "string",
+            "price": "number",
+            "discountedPrice": "number",
+            "imageUrl": "string",
+            "rating": "number",
+            "tags": "string[]",
+            "reviews": [
+                {
+                    "id": "number",
+                    "username": "string",
+                    "rating": "number",
+                    "description": "string"
+                }
+            ]
+        }
+    },
+
     "homePage": {
         "title": "Welcome to Our Website",
         "description": "We offer the best services in town. Our team is dedicated to providing top-notch solutions."
