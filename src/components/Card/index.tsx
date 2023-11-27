@@ -1,4 +1,6 @@
-import { Product } from "../../interfaces";
+import { Product, ProductCardInterface } from "../../interfaces";
+import { Heading, Image } from "../";
+import className from "classnames";
 
 export function Card({
     id,
@@ -10,6 +12,18 @@ export function Card({
     rating,
     tags,
     reviews,
-}: Product) {
-    return <div key={id}></div>;
+    product,
+    loading,
+    ...rest
+}: Product & ProductCardInterface) {
+    const classes = className(rest.className, "text-dark-gray", {
+        "product card classes": product,
+    });
+
+    return product ? (
+        <div className={classes} key={id}>
+            <Heading h3>{title}</Heading>
+            <Image src={imageUrl} alt={title} productCard />
+        </div>
+    ) : null;
 }

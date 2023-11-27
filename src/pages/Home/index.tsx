@@ -4,15 +4,25 @@ import { Product } from "../../interfaces";
 
 export function HomePage() {
     const [products, setProducts] = useState<Product[]>([]);
+    const [loading, setIsLoading] = useState(false);
+    const [error, setIsError] = useState(false);
 
     useEffect(() => {
         async function getProducts() {
-            const response = await fetch(
-                "https://api.noroff.dev/api/v1/online-shop"
-            );
-            const json = await response.json();
+            try {
+                setIsLoading(true);
+                setIsError(false);
+                const response = await fetch(
+                    "https://api.noroff.dev/api/v1/online-shop"
+                );
+                const json = await response.json();
 
-            setProducts(json);
+                setProducts(json);
+                setIsLoading(false);
+            } catch (error) {
+                setIsLoading(false);
+                setIsError(true);
+            }
         }
         getProducts();
     }, []);
@@ -33,6 +43,7 @@ export function HomePage() {
                         reviews,
                     }) => (
                         <Card
+                            product
                             key={id}
                             id={id}
                             title={title}

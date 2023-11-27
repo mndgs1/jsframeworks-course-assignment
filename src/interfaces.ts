@@ -16,3 +16,37 @@ export interface Product {
     tags: string[];
     reviews: Reviews[];
 }
+
+export interface HeadingInterface {
+    children: React.ReactNode;
+    h1?: boolean;
+    h2?: boolean;
+    h3?: boolean;
+    h4?: boolean;
+    h5?: boolean;
+    className?: string;
+}
+
+export interface ProductCardInterface {
+    product?: boolean;
+    className?: string;
+    loading?: boolean;
+}
+
+export interface ImageInterface {
+    src: string;
+    alt: string;
+    className?: string;
+    productCard?: boolean;
+}
+
+export interface ParagraphInterface {
+    children: React.ReactNode;
+    className?: string;
+    description?: boolean;
+    username?: boolean;
+    price?: boolean;
+    discountedPrice?: boolean;
+    rating?: boolean;
+    tag?: boolean;
+}
