@@ -1,5 +1,5 @@
-import Nav from "../Nav";
 import data from "../../content.json";
+import { Nav } from "../";
 
 interface NavigationItem {
     id: number;
@@ -7,12 +7,12 @@ interface NavigationItem {
     url: string;
 }
 
-interface DataStructure {
+interface Navigation {
     navigation: NavigationItem[];
 }
 
-function Header() {
-    const { navigation } = data as DataStructure;
+export function Header() {
+    const { navigation } = data as Navigation;
 
     return (
         <header>
@@ -20,5 +20,3 @@ function Header() {
         </header>
     );
 }
-
-export default Header;
