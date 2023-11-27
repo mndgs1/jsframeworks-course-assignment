@@ -13,10 +13,9 @@ export function Card({
     tags,
     reviews,
     product,
-    loading,
     ...rest
 }: Product & ProductCardInterface) {
-    const classes = className(rest.className, "text-dark-gray", {
+    const classes = className(rest.className, "", {
         "product card classes": product,
     });
 

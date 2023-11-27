@@ -15,6 +15,7 @@ export interface Product {
     rating: number;
     tags: string[];
     reviews: Reviews[];
+    children?: React.ReactNode;
 }
 
 export interface HeadingInterface {
@@ -30,7 +31,6 @@ export interface HeadingInterface {
 export interface ProductCardInterface {
     product?: boolean;
     className?: string;
-    loading?: boolean;
 }
 
 export interface ImageInterface {
