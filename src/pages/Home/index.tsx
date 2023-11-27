@@ -1,23 +1,6 @@
 import { useEffect, useState } from "react";
-
-interface Reviews {
-    id: number;
-    username: string;
-    rating: number;
-    description: string;
-}
-
-interface Product {
-    id: number;
-    title: string;
-    description: string;
-    price: number;
-    discountedPrice: number;
-    imageUrl: string;
-    rating: number;
-    tags: string[];
-    reviews: Reviews[];
-}
+import { Card } from "../../components";
+import { Product } from "../../interfaces";
 
 export function HomePage() {
     const [products, setProducts] = useState<Product[]>([]);
@@ -37,13 +20,32 @@ export function HomePage() {
     return (
         <>
             <section>
-                {products.map((product) => (
-                    <article key={product.id}>
-                        <h2>{product.title}</h2>
-                        <p>{product.description}</p>
-                        <img src={product.imageUrl} alt={product.title} />
-                    </article>
-                ))}
+                {products.map(
+                    ({
+                        id,
+                        title,
+                        description,
+                        price,
+                        discountedPrice,
+                        imageUrl,
+                        rating,
+                        tags,
+                        reviews,
+                    }) => (
+                        <Card
+                            key={id}
+                            id={id}
+                            title={title}
+                            description={description}
+                            price={price}
+                            discountedPrice={discountedPrice}
+                            imageUrl={imageUrl}
+                            rating={rating}
+                            tags={tags}
+                            reviews={reviews}
+                        />
+                    )
+                )}
             </section>
         </>
     );
