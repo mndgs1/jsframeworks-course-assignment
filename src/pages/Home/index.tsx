@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Card } from "../../components";
 import { Product } from "../../interfaces";
+import { GoSync } from "react-icons/go";
 
 export function HomePage() {
     const [products, setProducts] = useState<Product[]>([]);
