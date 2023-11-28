@@ -18,6 +18,12 @@ export interface Product {
     children?: React.ReactNode;
 }
 
+export interface ProductCardInterface {
+    product?: boolean;
+    className?: string;
+    loading?: boolean;
+}
+
 export interface HeadingInterface {
     children: React.ReactNode;
     h1?: boolean;
@@ -28,16 +34,12 @@ export interface HeadingInterface {
     className?: string;
 }
 
-export interface ProductCardInterface {
-    product?: boolean;
-    className?: string;
-}
-
 export interface ImageInterface {
     src: string;
     alt: string;
     className?: string;
     productCard?: boolean;
+    loading?: boolean;
 }
 
 export interface ParagraphInterface {
