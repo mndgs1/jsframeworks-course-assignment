@@ -28,7 +28,7 @@ export function Image({
         imgClassesByType ? imgClasses[imgClassesByType] : ""
     );
 
-    return productCard ? (
+    return (
         <div className={combinedClasses}>
             {loading ? (
                 <Skeleton
@@ -45,5 +45,5 @@ export function Image({
                 />
             )}
         </div>
-    ) : null;
+    );
 }
