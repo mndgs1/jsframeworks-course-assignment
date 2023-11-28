@@ -7,21 +7,36 @@ export function Image({
     src,
     alt,
     productCard,
+    productSpecific,
     loading,
     ...rest
 }: ImageInterface) {
-    const classes = className(
+    const imgClasses: any = {
+        productCard: "w-32 h-32",
+        productSpecific: "w-64 h-64",
+    };
+
+    const allProps: any = { productCard, productSpecific };
+
+    const imgClassesByType = Object.keys(allProps).find(
+        (key) => allProps[key] === true
+    );
+
+    const combinedClasses = className(
         rest.className,
         "flex justify-center align-center overflow-hidden",
-        {
-            "w-32 h-32": productCard,
-        }
+        imgClassesByType ? imgClasses[imgClassesByType] : ""
     );
 
     return productCard ? (
-        <div className={classes}>
+        <div className={combinedClasses}>
             {loading ? (
-                <Skeleton containerClassName="flex-1" className=" w-32 h-32" />
+                <Skeleton
+                    containerClassName="flex-1"
+                    className={
+                        imgClassesByType ? imgClasses[imgClassesByType] : ""
+                    }
+                />
             ) : (
                 <img
                     src={src}

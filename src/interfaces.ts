@@ -39,6 +39,7 @@ export interface ImageInterface {
     alt: string;
     className?: string;
     productCard?: boolean;
+    productSpecific?: boolean;
     loading?: boolean;
 }
 

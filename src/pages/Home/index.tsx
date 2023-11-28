@@ -41,7 +41,7 @@ export function HomePage() {
     if (isLoading) {
         return (
             <section>
-                {Array.from({ length: 5 }).map((_, index) => (
+                {Array.from({ length: 10 }).map((_, index) => (
                     <Card
                         loading={true}
                         id={index}
