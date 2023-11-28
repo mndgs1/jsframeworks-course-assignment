@@ -1,4 +1,14 @@
 {
+    "brand": {
+        "logo": "url/to/logo.png",
+        "name": "Brand Name",
+        "about": "Short description about the brand.",
+        "colorPalette": {
+            "primary": "#000000",
+            "secondary": "#FFFFFF",
+            "accent": "#FF0000"
+        }
+    },
     "navigation": [
         {
             "id": 1,
@@ -47,7 +57,6 @@
             ]
         }
     },
-
     "homePage": {
         "title": "Welcome to Our Website",
         "description": "We offer the best services in town. Our team is dedicated to providing top-notch solutions."
