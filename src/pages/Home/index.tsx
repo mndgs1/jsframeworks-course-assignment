@@ -44,7 +44,7 @@ export function HomePage() {
                 {Array.from({ length: 10 }).map((_, index) => (
                     <Card
                         loading={true}
-                        id={index}
+                        id={index.toString()}
                         key={index}
                         title="title"
                         description="desc"

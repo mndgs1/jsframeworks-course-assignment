@@ -32,8 +32,8 @@
         },
         {
             "id": 5,
-            "label": "Checkout",
-            "url": "/checkout"
+            "label": "Cart",
+            "url": "/cart"
         }
     ],
     "products": {

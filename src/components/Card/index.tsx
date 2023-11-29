@@ -1,5 +1,6 @@
 import { Product, ProductCardInterface } from "../../interfaces";
 import { Heading, Image } from "../";
+import { Link } from "react-router-dom";
 import className from "classnames";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
@@ -24,8 +25,15 @@ export function Card({
 
     return product ? (
         <div className={classes} key={id}>
-            <Heading h3>{!loading ? title : <Skeleton />}</Heading>
-            <Image src={imageUrl} alt={title} productCard loading={loading} />
+            <Link to={`/product/${id}`}>
+                <Heading h3>{!loading ? title : <Skeleton />}</Heading>
+                <Image
+                    src={imageUrl}
+                    alt={title}
+                    productCard
+                    loading={loading}
+                />
+            </Link>
         </div>
     ) : null;
 }
