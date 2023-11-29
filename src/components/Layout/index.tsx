@@ -4,7 +4,7 @@ export function Layout({ children }: any) {
     return (
         <>
             <Header />
-            <main>{children}</main>
+            <main className="px-6 max-w-7xl m-auto">{children}</main>
             <Footer />
         </>
     );

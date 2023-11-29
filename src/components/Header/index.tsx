@@ -1,5 +1,6 @@
 import data from "../../content.json";
 import { Nav } from "../";
+import { Link } from "react-router-dom";
 
 interface NavigationItem {
     id: number;
@@ -16,7 +17,14 @@ export function Header() {
 
     return (
         <header>
-            <Nav items={navigation} />
+            <div className="flex justify-between py-4 px-6 max-w-7xl m-auto">
+                <div>
+                    <Link to={"/"}>{data.brand.name}</Link>
+                </div>
+                <div>
+                    <Nav items={navigation} />
+                </div>
+            </div>
         </header>
     );
 }
