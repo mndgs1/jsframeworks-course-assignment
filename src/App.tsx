@@ -8,6 +8,8 @@ import {
     CartPage,
     CheckoutPage,
     NotFoundPage,
+    ContactPage,
+    CheckoutSuccessPage,
 } from "./pages";
 
 function App() {
@@ -20,6 +22,11 @@ function App() {
                 <Route path="/cart" element={<CartPage />} />
                 <Route path="/checkout" element={<CheckoutPage />} />
                 <Route path="*" element={<NotFoundPage />} />
+                <Route path="/contact" element={<ContactPage />} />
+                <Route
+                    path="/checkout/success"
+                    element={<CheckoutSuccessPage />}
+                />
             </Routes>
         </Layout>
     );
