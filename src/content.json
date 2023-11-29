@@ -1,8 +1,8 @@
 {
     "brand": {
-        "logo": "url/to/logo.png",
-        "name": "Brand Name",
-        "about": "Short description about the brand.",
+        "logo": "",
+        "name": "weSellCrap",
+        "about": "We sell, You buy, KA-CHING!",
         "colorPalette": {
             "primary": "#000000",
             "secondary": "#FFFFFF",

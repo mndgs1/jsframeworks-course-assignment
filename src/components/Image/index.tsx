@@ -41,7 +41,7 @@ export function Image({
                 <img
                     src={src}
                     alt={alt}
-                    className="object-contain w-full h-full"
+                    className="object-cover w-full h-full"
                 />
             )}
         </div>

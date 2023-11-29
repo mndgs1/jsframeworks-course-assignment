@@ -53,3 +53,8 @@ export interface ParagraphInterface {
     rating?: boolean;
     tag?: boolean;
 }
+
+export interface NavProps {
+    items: { label: string; url: string; id: number }[];
+    className?: string;
+}
