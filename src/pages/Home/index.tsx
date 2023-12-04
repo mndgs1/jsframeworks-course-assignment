@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Card } from "../../components";
 import { Product } from "../../interfaces";
-import data from "../../content.json";
 import { useNavigate } from "react-router-dom";
+import { getProducts } from "../../api";
 
 export function HomePage() {
     const [products, setProducts] = useState<Product[]>([]);
@@ -10,31 +10,67 @@ export function HomePage() {
     const [isError, setIsError] = useState(false);
 
     useEffect(() => {
-        async function getProducts() {
+        let isMounted = true; // flag to track if component is mounted
+
+        const renderProducts = async () => {
+            setIsLoading(true);
+            setIsError(false);
+
             try {
-                setIsLoading(true);
-                setIsError(false);
-
-                const { apiEndpoint } = data.products;
-                const response = await fetch(apiEndpoint);
-
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                const { products, error } = await getProducts();
+                if (isMounted) {
+                    if (products) {
+                        setProducts(products);
+                    }
+                    if (error) {
+                        console.error(error); // Log the error or handle it as needed
+                        setIsError(true);
+                    }
                 }
-
-                const json = await response.json();
-
-                setProducts(json);
-                setIsLoading(false);
             } catch (error) {
-                setIsError(true);
-                console.error("Error fetching data: ", error);
+                if (isMounted) {
+                    console.error(error); // Log or display this error too
+                    setIsError(true);
+                }
             } finally {
-                setIsLoading(false);
+                if (isMounted) {
+                    setIsLoading(false);
+                }
             }
-        }
-        getProducts();
+        };
+
+        renderProducts();
+
+        return () => {
+            isMounted = false;
+        };
     }, []);
+
+    //     async function getProducts() {
+    //         try {
+    //             setIsLoading(true);
+    //             setIsError(false);
+
+    //             const { apiEndpoint } = data.products;
+    //             const response = await fetch(apiEndpoint);
+
+    //             if (!response.ok) {
+    //                 throw new Error(`HTTP error! status: ${response.status}`);
+    //             }
+
+    //             const json = await response.json();
+
+    //             setProducts(json);
+    //             setIsLoading(false);
+    //         } catch (error) {
+    //             setIsError(true);
+    //             console.error("Error fetching data: ", error);
+    //         } finally {
+    //             setIsLoading(false);
+    //         }
+    //     }
+    //     getProducts();
+    // }, []);
 
     const navigate = useNavigate();
 

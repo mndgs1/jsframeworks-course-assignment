@@ -8,7 +8,7 @@ export interface NavProps {
 export function Nav({ items, ...rest }: NavProps) {
     return (
         <nav>
-            <ul className="flex gap-4">
+            <ul className="flex gap-4 items-center">
                 {items.map((item) => (
                     <li key={item.id}>
                         <Link to={item.url}>{item.label}</Link>

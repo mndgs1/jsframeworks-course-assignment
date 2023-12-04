@@ -4,7 +4,7 @@
         "name": "weSellCrap",
         "about": "We sell, You buy, KA-CHING!",
         "colorPalette": {
-            "primary": "#000000",
+            "primary": "#333333",
             "secondary": "#FFFFFF",
             "accent": "#FF0000"
         }
@@ -29,11 +29,6 @@
             "id": 4,
             "label": "Contact",
             "url": "/contact"
-        },
-        {
-            "id": 5,
-            "label": "Cart",
-            "url": "/cart"
         }
     ],
     "products": {
