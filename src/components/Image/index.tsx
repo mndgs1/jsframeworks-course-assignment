@@ -1,7 +1,15 @@
 import className from "classnames";
-import { ImageInterface } from "../../interfaces";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+
+interface ImageInterface {
+    src?: string;
+    alt?: string;
+    className?: string;
+    productCard?: boolean;
+    productSpecific?: boolean;
+    loading: boolean;
+}
 
 export function Image({
     src,
@@ -12,7 +20,7 @@ export function Image({
     ...rest
 }: ImageInterface) {
     const imgClasses: any = {
-        productCard: "w-32 h-32",
+        productCard: "w-full h-64 sm:h-80",
         productSpecific: "w-64 h-64",
     };
 
@@ -40,7 +48,7 @@ export function Image({
             ) : (
                 <img
                     src={src}
-                    alt={alt}
+                    alt={alt || "Placeholder image"}
                     className="object-cover w-full h-full"
                 />
             )}

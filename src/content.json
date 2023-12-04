@@ -39,7 +39,7 @@
     "products": {
         "apiEndpoint": "https://api.noroff.dev/api/v1/online-shop",
         "apiStructure": {
-            "id": "number",
+            "id": "string",
             "title": "string",
             "description": "string",
             "price": "number",

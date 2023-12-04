@@ -1,38 +1,65 @@
-import { Product, ProductCardInterface } from "../../interfaces";
+import { Product } from "../../interfaces";
 import { Heading, Image } from "../";
 import { Link } from "react-router-dom";
 import className from "classnames";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { Paragraph } from "../Paragraph";
 
-export function Card({
-    id,
-    title,
-    description,
-    price,
-    discountedPrice,
-    imageUrl,
-    rating,
-    tags,
-    reviews,
-    product,
-    loading,
-    ...rest
-}: Product & ProductCardInterface) {
-    const classes = className(rest.className, "", {
-        "product card classes": product,
-    });
+interface ProductCardInterface {
+    product?: Product;
+    className?: string;
+    loading: boolean;
+}
 
+type ProductCardProps = ProductCardInterface["loading"] extends true
+    ? ProductCardInterface & { product: Product }
+    : ProductCardInterface;
+
+export function Card({ product, loading, ...rest }: ProductCardProps) {
+    const classes = className(rest.className, "", {});
+
+    if (loading) {
+        return (
+            <div className={classes}>
+                <Image productCard loading={loading} />
+                <Heading h3>
+                    <Skeleton />
+                </Heading>
+            </div>
+        );
+    }
     return product ? (
-        <div className={classes} key={id}>
-            <Link to={`/product/${id}`}>
-                <Heading h3>{!loading ? title : <Skeleton />}</Heading>
+        <div className={classes} key={product.id}>
+            <Link to={`/product/${product.id}`}>
                 <Image
-                    src={imageUrl}
-                    alt={title}
+                    src={product.imageUrl}
+                    alt={product.title}
                     productCard
                     loading={loading}
                 />
+                <Heading h3>{product.title}</Heading>
+                {product.discountedPrice < product.price ? (
+                    <div>
+                        <div className="flex justify-between">
+                            <Paragraph className="line-through">
+                                {product.price} kr
+                            </Paragraph>
+                            <Paragraph>
+                                -
+                                {Math.round(
+                                    100 -
+                                        (product.discountedPrice * 100) /
+                                            product.price
+                                )}
+                                %
+                            </Paragraph>
+                        </div>
+                        <Paragraph>{product.discountedPrice} kr</Paragraph>
+                    </div>
+                ) : (
+                    <Paragraph>{product.price} kr</Paragraph>
+                )}
             </Link>
         </div>
     ) : null;

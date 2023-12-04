@@ -1,5 +1,15 @@
 import className from "classnames";
-import { ParagraphInterface } from "../../interfaces";
+
+export interface ParagraphInterface {
+    children: React.ReactNode;
+    className?: string;
+    description?: boolean;
+    username?: boolean;
+    price?: boolean;
+    discountedPrice?: boolean;
+    rating?: boolean;
+    tag?: boolean;
+}
 
 export function Paragraph({
     children,

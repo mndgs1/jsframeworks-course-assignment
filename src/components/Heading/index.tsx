@@ -1,6 +1,14 @@
 import className from "classnames";
-import { HeadingInterface } from "../../interfaces";
 
+interface HeadingInterface {
+    children: React.ReactNode;
+    h1?: boolean;
+    h2?: boolean;
+    h3?: boolean;
+    h4?: boolean;
+    h5?: boolean;
+    className?: string;
+}
 export function Heading({
     children,
     h1,

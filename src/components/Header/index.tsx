@@ -1,7 +1,6 @@
 import data from "../../content.json";
 import { Nav } from "../";
-import { Link, useLocation } from "react-router-dom";
-import { SearchBar } from "../Search";
+import { Link } from "react-router-dom";
 
 interface NavigationItem {
     id: number;
@@ -16,18 +15,11 @@ interface Navigation {
 export function Header() {
     const { navigation } = data as Navigation;
 
-    const { pathname } = useLocation();
-
     return (
         <header>
-            <div className="flex justify-between py-4 max-w-7xl m-auto">
-                <div>
-                    <Link to={"/"}>{data.brand.name}</Link>
-                </div>
-                {pathname === "/" && <SearchBar />}
-                <div>
-                    <Nav items={navigation} />
-                </div>
+            <div className="flex justify-between py-4 max-w-7xl m-auto px-2 sm:px-6">
+                <Link to={"/"}>{data.brand.name}</Link>
+                <Nav items={navigation} />
             </div>
         </header>
     );

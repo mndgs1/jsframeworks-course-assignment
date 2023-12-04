@@ -40,22 +40,9 @@ export function HomePage() {
 
     if (isLoading) {
         return (
-            <section>
-                {Array.from({ length: 10 }).map((_, index) => (
-                    <Card
-                        loading={true}
-                        id={index.toString()}
-                        key={index}
-                        title="title"
-                        description="desc"
-                        price={0}
-                        discountedPrice={0}
-                        imageUrl="default"
-                        rating={0}
-                        tags={["tag1", "tag2"]}
-                        reviews={[]}
-                        product
-                    />
+            <section className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                {Array.from({ length: 20 }).map((_, index) => (
+                    <Card loading={isLoading} key={index} />
                 ))}
             </section>
         );
@@ -65,36 +52,10 @@ export function HomePage() {
         navigate("/404");
     }
     return (
-        <>
-            <section>
-                {products.map(
-                    ({
-                        id,
-                        title,
-                        description,
-                        price,
-                        discountedPrice,
-                        imageUrl,
-                        rating,
-                        tags,
-                        reviews,
-                    }) => (
-                        <Card
-                            product
-                            key={id}
-                            id={id}
-                            title={title}
-                            description={description}
-                            price={price}
-                            discountedPrice={discountedPrice}
-                            imageUrl={imageUrl}
-                            rating={rating}
-                            tags={tags}
-                            reviews={reviews}
-                        />
-                    )
-                )}
-            </section>
-        </>
+        <section className="grid gap-4 sm:gap-8 xl:gap-14 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {products.map((product) => (
+                <Card product={product} loading={isLoading} key={product.id} />
+            ))}
+        </section>
     );
 }
