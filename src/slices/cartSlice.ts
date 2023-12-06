@@ -56,6 +56,15 @@ export const selectTotalQuantity = createSelector(
     (cartItems) => cartItems.reduce((total, item) => total + item.quantity, 0)
 );
 
+export const selectTotalPrice = createSelector(
+    (state: RootState) => state.cart.cart,
+    (cartItems) =>
+        cartItems.reduce(
+            (total, item) => total + item.product.discountedPrice,
+            0
+        )
+);
+
 export const { addToCart, removeFromCart } = cartSlice.actions;
 
 export default cartSlice.reducer;

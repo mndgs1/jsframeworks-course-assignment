@@ -3,13 +3,14 @@ import {
     addToCart,
     removeFromCart,
     selectTotalQuantity,
+    selectTotalPrice,
 } from "../../slices/cartSlice";
 import { RootState } from "../../store";
 import { Product } from "../../interfaces";
 
 export function useCart() {
     const dispatch = useDispatch();
-    const cart = useSelector((state: RootState) => state.cart);
+    const cart = useSelector((state: RootState) => state.cart.cart);
 
     const handleAddToCart = (product: Product) => {
         dispatch(addToCart(product));
@@ -20,6 +21,13 @@ export function useCart() {
     };
 
     const totalQuantity = useSelector(selectTotalQuantity);
+    const totalPrice = useSelector(selectTotalPrice);
 
-    return { cart, handleAddToCart, handleRemoveFromCart, totalQuantity };
+    return {
+        cart,
+        handleAddToCart,
+        handleRemoveFromCart,
+        totalQuantity,
+        totalPrice,
+    };
 }
