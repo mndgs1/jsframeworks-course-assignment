@@ -17,11 +17,11 @@ export function Header() {
 
     return (
         <header>
-            <div className="flex justify-between py-4 max-w-7xl m-auto px-2 sm:px-6">
+            <div className="flex justify-between items-center py-4 max-w-7xl m-auto px-2 sm:px-6">
                 <Link to={"/"}>{data.brand.name}</Link>
                 <div className="flex items-center gap-2">
                     <Nav items={navigation} />
-                    <CartIcon count={0} />
+                    <CartIcon />
                 </div>
             </div>
         </header>

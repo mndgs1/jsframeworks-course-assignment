@@ -2,7 +2,7 @@
 
 -   +Create a Header that has a Nav.
 
--   +-Create a Cart Icon component and position this next to your Nav. This Cart Icon component will have an overlay that displays the number of items in the cart.
+-   +Create a Cart Icon component and position this next to your Nav. This Cart Icon component will have an overlay that displays the number of items in the cart.
 
 -   +Create a Footer component.
 
@@ -27,9 +27,9 @@
 
 -   +On the ProductPage, use the ID of the product as the params for the dynamic segment. Add the product details as mentioned in the brief.
 
--   Create a cart state. When the Add to cart button on the ProductPage is clicked, add the product to the cart.
+-   +Create a cart state. When the Add to cart button on the ProductPage is clicked, add the product to the cart.
 
--   Clicking on the Cart Icon component will take the user to the CheckoutPage page.
+-   +Clicking on the Cart Icon component will take the user to the CheckoutPage page.
 
 -   The CheckoutPage must list all of the products in the cart, show a total at the bottom and a Checkout button.
 
@@ -51,3 +51,5 @@
 -   console.log the data from the form once validation requirements are met.
 
 -   Once your project is done, deploy it to Netlify.
+
+-   Add redux store state persist to localStorage

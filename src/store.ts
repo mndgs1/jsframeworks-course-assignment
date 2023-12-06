@@ -6,3 +6,10 @@ export const store = configureStore({
         cart: cartReducer,
     },
 });
+
+store.subscribe(() => {
+    const state = store.getState();
+    localStorage.setItem("cart", JSON.stringify(state.cart));
+});
+
+export type RootState = ReturnType<typeof store.getState>;

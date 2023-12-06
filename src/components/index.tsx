@@ -6,3 +6,4 @@ export * from "./Card";
 export * from "./Heading";
 export * from "./Image";
 export * from "./CartIcon";
+export * from "./Button";
