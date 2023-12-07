@@ -16,11 +16,8 @@ export function CartPage() {
             <section>
                 {cart.map((cartItem) => {
                     return (
-                        <div key={cartItem.product.id}>
-                            <ProductCard
-                                product={cartItem.product}
-                                loading={false}
-                            />
+                        <div key={cartItem.id}>
+                            <ProductCard product={cartItem} loading={false} />
                         </div>
                     );
                 })}
