@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
     addToCart,
     removeFromCart,
+    clearCart,
     selectTotalQuantity,
     selectTotalPrice,
 } from "../../slices/cartSlice";
@@ -20,6 +21,10 @@ export function useCart() {
         dispatch(removeFromCart(productId));
     };
 
+    const handleClearCart = () => {
+        dispatch(clearCart());
+    };
+
     const totalQuantity = useSelector(selectTotalQuantity);
     const totalPrice = useSelector(selectTotalPrice);
 
@@ -27,6 +32,7 @@ export function useCart() {
         cart,
         handleAddToCart,
         handleRemoveFromCart,
+        handleClearCart,
         totalQuantity,
         totalPrice,
     };

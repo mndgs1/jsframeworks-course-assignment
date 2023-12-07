@@ -48,6 +48,7 @@ export const cartSlice = createSlice({
                 }
             }
         },
+        clearCart: () => initialState,
     },
 });
 
@@ -65,6 +66,6 @@ export const selectTotalPrice = createSelector(
         )
 );
 
-export const { addToCart, removeFromCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, clearCart } = cartSlice.actions;
 
 export default cartSlice.reducer;
