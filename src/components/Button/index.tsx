@@ -33,7 +33,7 @@ export function Button({
         "flex items-center px-6 py-4 border h-8 rounded",
         {
             "opacity-80": loading,
-            "border-pink bg-pink font-extrabold text-white": primary,
+            "border-pink bg-pink font-extrabold": primary,
             "border-gray-900 bg-gray-900 text-white": secondary,
             "border-green-500 bg-green-500 text-white": success,
             "border-yellow-400 bg-yellow-400 text-white": warning,

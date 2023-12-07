@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useFetchProduct, useCart } from "../../hooks";
-import { Heading, Button } from "../../components";
+import { Heading, Button, Image } from "../../components";
+import Skeleton from "react-loading-skeleton";
 
 export function ProductPage() {
     const { handleAddToCart } = useCart();
@@ -9,29 +10,49 @@ export function ProductPage() {
 
     const { product, isLoading, isError } = useFetchProduct(id ?? "");
 
-    // Handle loading state
-    if (isLoading) {
-        return <div>Loading...</div>;
-    }
-
-    // Handle error state
-    if (isError || product === null) {
+    if (isError) {
         return <div>Error loading product or product not found</div>;
     }
 
-    // Inside your component
-
-    // Now it's safe to assume product is not null
     return (
         <>
-            <Heading h1>{product.title}</Heading>
-            <p>{product.description}</p>
-            <p>{product.price}</p>
-            <p>{product.discountedPrice}</p>
-            <img src={product.imageUrl} alt={product.title} />
-            <Button success onClick={() => handleAddToCart(product)}>
-                Add to cart
-            </Button>
+            {product ? (
+                <div className="lg:flex lg:gap-4">
+                    <img
+                        src={product.imageUrl}
+                        alt={product.title}
+                        className="lg:w-1/2"
+                    />
+                    <div>
+                        <Heading h1>{product.title}</Heading>
+                        <p>{product.description}</p>
+                        <p>{product.price}</p>
+                        <p>{product.discountedPrice}</p>
+
+                        <Button
+                            success
+                            onClick={() => handleAddToCart(product)}>
+                            Add to cart
+                        </Button>
+                    </div>
+                </div>
+            ) : (
+                <>
+                    <Heading h1>
+                        <Skeleton />
+                    </Heading>
+                    <p>
+                        <Skeleton />
+                    </p>
+                    <p>
+                        <Skeleton />
+                    </p>
+                    <p>
+                        <Skeleton />
+                    </p>
+                    <Image loading={isLoading} />
+                </> // or any other placeholder/fallback content
+            )}
         </>
     );
 }

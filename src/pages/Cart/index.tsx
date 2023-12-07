@@ -1,5 +1,6 @@
 import { useCart } from "../../hooks";
-import { Card } from "../../components";
+import { ProductCard, Button } from "../../components";
+import { Link } from "react-router-dom";
 
 export function CartPage() {
     const {
@@ -16,7 +17,10 @@ export function CartPage() {
                 {cart.map((cartItem) => {
                     return (
                         <div key={cartItem.product.id}>
-                            {cartItem.product.title}
+                            <ProductCard
+                                product={cartItem.product}
+                                loading={false}
+                            />
                         </div>
                     );
                 })}
@@ -24,6 +28,9 @@ export function CartPage() {
             <section>
                 Price: {totalPrice} Quantity: {totalQuantity}
             </section>
+            <Link to="/checkout">
+                <Button primary>Checkout</Button>
+            </Link>
         </>
     );
 }
