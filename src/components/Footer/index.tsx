@@ -1,7 +1,9 @@
 export function Footer() {
     return (
-        <footer className="px-2 sm:px-6">
-            <p>Footer</p>
+        <footer>
+            <div className="py-4 max-w-7xl m-auto px-2 sm:px-6">
+                <p>Footer</p>
+            </div>
         </footer>
     );
 }

@@ -17,7 +17,11 @@ export function CartPage() {
                 {cart.map((cartItem) => {
                     return (
                         <div key={cartItem.id}>
-                            <ProductCard product={cartItem} loading={false} />
+                            <ProductCard
+                                product={cartItem}
+                                loading={false}
+                                className="flex"
+                            />
                         </div>
                     );
                 })}
