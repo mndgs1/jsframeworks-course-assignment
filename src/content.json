@@ -1,4 +1,14 @@
 {
+    "brand": {
+        "logo": "",
+        "name": "weSellCrap",
+        "about": "We sell, You buy, KA-CHING!",
+        "colorPalette": {
+            "primary": "#333333",
+            "secondary": "#FFFFFF",
+            "accent": "#FF0000"
+        }
+    },
     "navigation": [
         {
             "id": 1,
@@ -19,29 +29,87 @@
             "id": 4,
             "label": "Contact",
             "url": "/contact"
-        },
-        {
-            "id": 5,
-            "label": "Checkout",
-            "url": "/checkout"
         }
     ],
-    "homePage": {
-        "title": "Welcome to Our Website",
-        "description": "We offer the best services in town. Our team is dedicated to providing top-notch solutions."
+    "products": {
+        "apiEndpoint": "https://api.noroff.dev/api/v1/online-shop",
+        "apiStructure": {
+            "id": "string",
+            "title": "string",
+            "description": "string",
+            "price": "number",
+            "discountedPrice": "number",
+            "imageUrl": "string",
+            "rating": "number",
+            "tags": "string[]",
+            "reviews": [
+                {
+                    "id": "number",
+                    "username": "string",
+                    "rating": "number",
+                    "description": "string"
+                }
+            ]
+        }
     },
-    "aboutPage": {
-        "title": "About Us",
-        "content": "We are a team of passionate individuals committed to delivering excellence in our field. Our journey started in 2020 with a mission to provide quality services."
-    },
-    "contactPage": {
-        "phoneNumber": "+1234567890",
-        "email": "contact@ourwebsite.com",
-        "address": "123, Our Street, Our City, Our Country"
-    },
-    "productPage": {},
-    "checkoutPage": {},
-    "checkoutSuccessPage": {
-        "message": "Thank you for your purchase! Your order has been successfully processed."
+    "pages": {
+        "homePage": {
+            "title": "Welcome to Our Website",
+            "description": "We offer the best services in town. Our team is dedicated to providing top-notch solutions."
+        },
+        "aboutPage": {
+            "title": "About Us",
+            "content": "We are a team of passionate individuals committed to delivering excellence in our field. Our journey started in 2020 with a mission to provide quality services."
+        },
+        "contactPage": {
+            "contactInformation": {
+                "title": "iSellCrap",
+                "phone": "+1234567890",
+                "email": "contact@ourwebsite.com",
+                "address": "123, Our Street, Our City, Our Country"
+            },
+            "contactForm": {
+                "title": "Message Us",
+                "description": "Please fill out the form below to get in touch with us.",
+                "fields": [
+                    {
+                        "id": 1,
+                        "label": "Name",
+                        "type": "text",
+                        "placeholder": "Enter your name",
+                        "required": true
+                    },
+                    {
+                        "id": 2,
+                        "label": "Email",
+                        "type": "email",
+                        "placeholder": "Enter your email",
+                        "required": true
+                    },
+                    {
+                        "id": 3,
+                        "label": "Name",
+                        "type": "text",
+                        "placeholder": "Enter your name",
+                        "required": true
+                    },
+                    {
+                        "id": 4,
+                        "label": "Message",
+                        "type": "textarea",
+                        "placeholder": "Enter your message",
+                        "required": true
+                    }
+                ],
+                "button": {
+                    "label": "Send Message"
+                }
+            }
+        },
+        "productPage": {},
+        "checkoutPage": {},
+        "checkoutSuccessPage": {
+            "message": "Thank you for your purchase! Your order has been successfully processed."
+        }
     }
 }

@@ -1,3 +1,37 @@
+import { useCart } from "../../hooks";
+import { ProductCard, Button } from "../../components";
+import { Link } from "react-router-dom";
+
 export function CartPage() {
-    return <div>Cart</div>;
+    const {
+        cart,
+        handleAddToCart,
+        handleRemoveFromCart,
+        totalQuantity,
+        totalPrice,
+    } = useCart();
+
+    return (
+        <>
+            <section>
+                {cart.map((cartItem) => {
+                    return (
+                        <div key={cartItem.id}>
+                            <ProductCard
+                                product={cartItem}
+                                loading={false}
+                                className="flex"
+                            />
+                        </div>
+                    );
+                })}
+            </section>
+            <section>
+                Price: {totalPrice} Quantity: {totalQuantity}
+            </section>
+            <Link to="/checkout">
+                <Button primary>Checkout</Button>
+            </Link>
+        </>
+    );
 }

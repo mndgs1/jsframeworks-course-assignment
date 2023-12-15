@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
 
-interface NavProps {
+export interface NavProps {
     items: { label: string; url: string; id: number }[];
+    className?: string;
 }
 
-export function Nav({ items }: NavProps) {
+export function Nav({ items, ...rest }: NavProps) {
     return (
         <nav>
-            <ul>
+            <ul className="flex gap-4 items-center">
                 {items.map((item) => (
                     <li key={item.id}>
                         <Link to={item.url}>{item.label}</Link>

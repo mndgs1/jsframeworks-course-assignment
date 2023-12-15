@@ -1,3 +1,21 @@
+import { Link } from "react-router-dom";
+import { Button } from "../../components";
+import { useCart } from "../../hooks";
+
 export function CheckoutPage() {
-    return <div>Checkout</div>;
+    const { handleClearCart } = useCart();
+
+    return (
+        <>
+            <Link to="/checkout/success">
+                <Button
+                    primary
+                    onClick={() => {
+                        handleClearCart();
+                    }}>
+                    Checkout
+                </Button>
+            </Link>
+        </>
+    );
 }

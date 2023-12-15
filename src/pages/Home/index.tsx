@@ -1,48 +1,40 @@
-import { useEffect, useState } from "react";
-
-interface Reviews {
-    id: number;
-    username: string;
-    rating: number;
-    description: string;
-}
-
-interface Product {
-    id: number;
-    title: string;
-    description: string;
-    price: number;
-    discountedPrice: number;
-    imageUrl: string;
-    rating: number;
-    tags: string[];
-    reviews: Reviews[];
-}
+import { ProductCard } from "../../components";
+import { useNavigate } from "react-router-dom";
+import { useFetchProducts } from "../../hooks/useFetchProducts";
+import { SearchBar } from "../../components/Search";
 
 export function HomePage() {
-    const [products, setProducts] = useState<Product[]>([]);
+    const { products, isLoading, isError } = useFetchProducts();
 
-    useEffect(() => {
-        async function getProducts() {
-            const response = await fetch(
-                "https://api.noroff.dev/api/v1/online-shop"
-            );
-            const json = await response.json();
+    const navigate = useNavigate();
 
-            setProducts(json);
-        }
-        getProducts();
-    }, []);
+    if (isLoading) {
+        return (
+            <>
+                <SearchBar />
+                <section className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                    {Array.from({ length: 20 }).map((_, index) => (
+                        <ProductCard loading={isLoading} key={index} />
+                    ))}
+                </section>
+            </>
+        );
+    }
 
+    if (isError) {
+        navigate("/404");
+    }
     return (
         <>
-            <section>
+            <SearchBar />
+
+            <section className="grid gap-4 sm:gap-8 xl:gap-14 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                 {products.map((product) => (
-                    <article key={product.id}>
-                        <h2>{product.title}</h2>
-                        <p>{product.description}</p>
-                        <img src={product.imageUrl} alt={product.title} />
-                    </article>
+                    <ProductCard
+                        product={product}
+                        loading={isLoading}
+                        key={product.id}
+                    />
                 ))}
             </section>
         </>

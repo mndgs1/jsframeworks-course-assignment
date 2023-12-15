@@ -1,5 +1,6 @@
 import data from "../../content.json";
-import { Nav } from "../";
+import { CartIcon, Nav } from "../";
+import { Link } from "react-router-dom";
 
 interface NavigationItem {
     id: number;
@@ -16,7 +17,13 @@ export function Header() {
 
     return (
         <header>
-            <Nav items={navigation} />
+            <div className="flex justify-between items-center py-4 max-w-7xl m-auto px-2 sm:px-6">
+                <Link to={"/"}>{data.brand.name}</Link>
+                <div className="flex items-center gap-2">
+                    <Nav items={navigation} />
+                    <CartIcon />
+                </div>
+            </div>
         </header>
     );
 }
