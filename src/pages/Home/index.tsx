@@ -10,11 +10,14 @@ export function HomePage() {
 
     if (isLoading) {
         return (
-            <section className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                {Array.from({ length: 20 }).map((_, index) => (
-                    <ProductCard loading={isLoading} key={index} />
-                ))}
-            </section>
+            <>
+                <SearchBar />
+                <section className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                    {Array.from({ length: 20 }).map((_, index) => (
+                        <ProductCard loading={isLoading} key={index} />
+                    ))}
+                </section>
+            </>
         );
     }
 
@@ -24,6 +27,7 @@ export function HomePage() {
     return (
         <>
             <SearchBar />
+
             <section className="grid gap-4 sm:gap-8 xl:gap-14 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                 {products.map((product) => (
                     <ProductCard

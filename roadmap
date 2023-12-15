@@ -8,7 +8,7 @@
 
 -   +Create a Layout component that has your Header and Footer.
 
--   Create the other pages:
+-   +Create the other pages:
     +6.1 ContactPage
 
     +6.2 ProductPage
@@ -37,18 +37,18 @@
 
 -   +The CheckoutSuccessPage should display that the order was successful and clear the cart. There should be a link to go back to the store.
 
--   On the ContactPage, create the following inputs with the following requirements.
-    16.1 Full name (Minimum number of characters is 3, required)
+-   +On the ContactPage, create the following inputs with the following requirements.
+    +16.1 Full name (Minimum number of characters is 3, required)
 
-    16.2 Subject (Minimum number of characters is 3, required)
+    +16.2 Subject (Minimum number of characters is 3, required)
 
-    16.3 Email (Must be a valid email address, required)
+    +16.3 Email (Must be a valid email address, required)
 
-    16.4 Body (Minimum number of characters is 3, required)
+    +16.4 Body (Minimum number of characters is 3, required)
 
-    16.5 Submit button
+    +16.5 Submit button
 
--   console.log the data from the form once validation requirements are met.
+-   +console.log the data from the form once validation requirements are met.
 
 -   Once your project is done, deploy it to Netlify.
 
