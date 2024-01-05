@@ -24,11 +24,6 @@ export function SearchBar({ products }: { products: Product[] }) {
         console.log(inputValue);
     };
 
-    const handleInputBlur = () => {
-        // Optional: Hide dropdown when input loses focus
-        setIsDropdownVisible(false);
-    };
-
     return (
         <div>
             <search title="products" className="relative">

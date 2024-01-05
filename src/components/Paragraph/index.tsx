@@ -9,6 +9,8 @@ export interface ParagraphInterface {
     discountedPrice?: boolean;
     rating?: boolean;
     tag?: boolean;
+    error?: boolean;
+    success?: boolean;
 }
 
 export function Paragraph({
@@ -19,6 +21,8 @@ export function Paragraph({
     discountedPrice,
     rating,
     tag,
+    error,
+    success,
     ...rest
 }: ParagraphInterface) {
     const classes = className(rest.className, "text-dark-gray", {
@@ -28,6 +32,8 @@ export function Paragraph({
         "text-lg md:text-xl mb-2": discountedPrice,
         "md:text-lg mb-2": rating,
         "this is tag": tag,
+        "text-red-500": error,
+        "bg-green-500 text-white": success,
     });
 
     return <p className={classes}>{children}</p>;
@@ -41,6 +47,8 @@ Paragraph.propTypes = {
         discountedPrice,
         rating,
         tag,
+        error,
+        success,
     }: ParagraphInterface) => {
         const count =
             Number(!!description) +
@@ -48,7 +56,9 @@ Paragraph.propTypes = {
             Number(!!price) +
             Number(!!discountedPrice) +
             Number(!!rating) +
-            Number(!!tag);
+            Number(!!tag) +
+            Number(!!error) +
+            Number(!!success);
 
         if (count > 1) {
             return new Error(
