@@ -34,7 +34,12 @@ export function ContactPage() {
         resolver: yupResolver(schema),
     });
 
-    function onSubmit(data: any) {
+    function onSubmit(data: {
+        fullName: string;
+        email: string;
+        subject: string;
+        body: string;
+    }) {
         console.log(data);
     }
 
@@ -53,24 +58,28 @@ export function ContactPage() {
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div>
                         <label htmlFor="fullName">Full Name</label>
-                        <input {...register("fullName")} />
+                        <input {...register("fullName")} id="fullName" />
                         <p>{errors.fullName?.message}</p>
                     </div>
                     <div>
                         <label htmlFor="email">Email</label>
-                        <input {...register("email")} />
+                        <input {...register("email")} id="email" />
                         <p>{errors.email?.message}</p>
                     </div>
                     <div>
                         <label className="block" htmlFor="subject">
                             Subject:
                         </label>
-                        <input {...register("subject")} className="border" />
+                        <input
+                            {...register("subject")}
+                            className="border"
+                            id="subject"
+                        />
                         <p>{errors.subject?.message}</p>
                     </div>
                     <div>
                         <label htmlFor="body">Body</label>
-                        <input {...register("body")} />
+                        <input {...register("body")} id="body" />
                         <p>{errors.body?.message}</p>
                     </div>
 

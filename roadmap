@@ -23,7 +23,7 @@
 
 -   +On the homepage, loop through the products and display a Product component for each of the values. This Product component should look like a product card. Each Product component will have a View product button which will link to the ProductPage page.
 
--   +-The homepage should have a lookahead/auto-complete Search bar component. Typing values in the search bar should display products where the title matches the search input. Clicking on an item should take the user to the ProductPage page. Tip: Filter the user input and then display products that match the input.
+-   +The homepage should have a lookahead/auto-complete Search bar component. Typing values in the search bar should display products where the title matches the search input. Clicking on an item should take the user to the ProductPage page. Tip: Filter the user input and then display products that match the input.
 
 -   +On the ProductPage, use the ID of the product as the params for the dynamic segment. Add the product details as mentioned in the brief.
 
@@ -52,4 +52,4 @@
 
 -   Once your project is done, deploy it to Netlify.
 
--   Add redux store state persist to localStorage
+-   +Add redux store state persist to localStorage
