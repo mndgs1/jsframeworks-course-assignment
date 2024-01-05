@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 export function CartPage() {
     const {
         cart,
-        handleAddToCart,
-        handleRemoveFromCart,
+        // handleAddToCart,
+        // handleRemoveFromCart,
         totalQuantity,
         totalPrice,
     } = useCart();
