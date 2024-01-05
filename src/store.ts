@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import cartReducer from "./slices/cartSlice";
-import { loadState, saveState } from "./helpers";
+import { loadState } from "./helpers";
 
 const persistedState = loadState();
 
