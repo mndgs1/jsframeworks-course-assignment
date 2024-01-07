@@ -1,7 +1,7 @@
 {
     "brand": {
         "logo": "",
-        "name": "weSellCrap",
+        "name": "weSell",
         "about": "We sell, You buy, KA-CHING!",
         "colorPalette": {
             "primary": "#333333",
@@ -22,11 +22,6 @@
         },
         {
             "id": 3,
-            "label": "Products",
-            "url": "/products"
-        },
-        {
-            "id": 4,
             "label": "Contact",
             "url": "/contact"
         }
@@ -59,7 +54,18 @@
         },
         "aboutPage": {
             "title": "About Us",
-            "content": "We are a team of passionate individuals committed to delivering excellence in our field. Our journey started in 2020 with a mission to provide quality services."
+            "content": [
+                {
+                    "id": 1,
+                    "title": "Early Years",
+                    "description": "Founded in [Year], we are a team of passionate individuals who believe that the right products can bring joy, convenience, and innovation into our lives. Based in the heart of [Location], we started our journey with a simple mission: to provide high-quality, unique products that cater to the ever-changing needs of our customers."
+                },
+                {
+                    "id": 2,
+                    "title": "Founders",
+                    "description": "Our Founders, [Founder Names], combined their expertise in technology, marketing, and customer service to create an online shopping experience that is not just about buying but about discovering new possibilities. Inspired by our diverse interests in technology, gaming, outdoor activities, and a love for unique gadgets, we strive to bring you products that are not just trendy but also add value to your daily life."
+                }
+            ]
         },
         "contactPage": {
             "contactInformation": {

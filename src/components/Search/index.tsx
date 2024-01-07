@@ -24,9 +24,14 @@ export function SearchBar({ products }: { products: Product[] }) {
         console.log(inputValue);
     };
 
+    const handleBlur = () => {
+        setTimeout(() => {
+            setIsDropdownVisible(false);
+        }, 400);
+    };
     return (
-        <div>
-            <search title="products" className="relative">
+        <div className="mb-4 max-w-md m-auto relative" onBlur={handleBlur}>
+            <search title="products" className="">
                 <form
                     action="/search"
                     onSubmit={() => handleSubmit}
@@ -47,14 +52,16 @@ export function SearchBar({ products }: { products: Product[] }) {
                     </button>
                 </form>
             </search>
-            {isDropdownVisible &&
-                filteredProducts.map((product) => (
-                    <div key={product.id}>
-                        <Link to={`/product/${product.id}`}>
-                            {product.title}
-                        </Link>
-                    </div>
-                ))}
+            <div className="absolute bg-white w-full p-2">
+                {isDropdownVisible &&
+                    filteredProducts.map((product) => (
+                        <div key={product.id} className="m-1">
+                            <Link to={`/product/${product.id}`}>
+                                {product.title}
+                            </Link>
+                        </div>
+                    ))}
+            </div>
         </div>
     );
 }

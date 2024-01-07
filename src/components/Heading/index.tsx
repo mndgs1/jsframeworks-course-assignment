@@ -19,7 +19,7 @@ export function Heading({
     ...rest
 }: HeadingInterface) {
     const classes = className(rest.className, "text-dark-gray", {
-        "text-4xl md:text-5xl": h1,
+        "text-4xl md:text-5xl mb-4": h1,
         "text-2xl": h2,
         "text-xl md:text-2xl mb-2": h3,
         "text-lg md:text-xl mb-2": h4,

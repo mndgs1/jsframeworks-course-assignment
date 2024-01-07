@@ -56,38 +56,51 @@ export function ContactPage() {
     return (
         <>
             <Heading h1>Contact Us</Heading>
-            <div>
-                <Paragraph>{contactInformation.address}</Paragraph>
-                <Paragraph>{contactInformation.phone}</Paragraph>
-                <Paragraph>{contactInformation.email}</Paragraph>
+            <div className="mb-2">
+                <Heading h2>Contact Information</Heading>
+                <Paragraph>Address: {contactInformation.address}</Paragraph>
+                <Paragraph>Phone: {contactInformation.phone}</Paragraph>
+                <Paragraph>Email: {contactInformation.email}</Paragraph>
             </div>
             <div>
                 <Heading h2>{contactForm.title}</Heading>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <div>
-                        <label htmlFor="fullName">Full Name</label>
-                        <input {...register("fullName")} id="fullName" />
+                    <div className="flex flex-col">
+                        <label htmlFor="fullName">Full Name:</label>
+                        <input
+                            {...register("fullName")}
+                            id="fullName"
+                            className="border border-gray-300 max-w-md w-full"
+                        />
                         <Paragraph error>{errors.fullName?.message}</Paragraph>
                     </div>
-                    <div>
-                        <label htmlFor="email">Email</label>
-                        <input {...register("email")} id="email" />
+                    <div className="flex flex-col">
+                        <label htmlFor="email">Email:</label>
+                        <input
+                            {...register("email")}
+                            id="email"
+                            className="border border-gray-300 max-w-md w-full"
+                        />
                         <Paragraph error>{errors.email?.message}</Paragraph>
                     </div>
-                    <div>
+                    <div className="flex flex-col">
                         <label className="block" htmlFor="subject">
                             Subject:
                         </label>
                         <input
                             {...register("subject")}
-                            className="border"
+                            className="border border-gray-300 max-w-md w-full"
                             id="subject"
                         />
                         <Paragraph error>{errors.subject?.message}</Paragraph>
                     </div>
-                    <div>
-                        <label htmlFor="body">Body</label>
-                        <input {...register("body")} id="body" />
+                    <div className="flex flex-col">
+                        <label htmlFor="body">Body:</label>
+                        <input
+                            {...register("body")}
+                            id="body"
+                            className="border border-gray-300 max-w-md w-full"
+                        />
                         <Paragraph error>{errors.body?.message}</Paragraph>
                     </div>
 

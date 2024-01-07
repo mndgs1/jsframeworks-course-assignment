@@ -11,6 +11,7 @@ interface ProductCardInterface {
     className?: string;
     loading: boolean;
     children?: React.ReactNode;
+    imageClasses?: string;
 }
 
 type ProductCardProps = ProductCardInterface["loading"] extends true
@@ -21,6 +22,7 @@ export function ProductCard({
     product,
     loading,
     children,
+    imageClasses,
     ...rest
 }: ProductCardProps) {
     const classes = className(rest.className, "", {});
@@ -43,7 +45,7 @@ export function ProductCard({
                         src={product.imageUrl}
                         alt={product.title}
                         loading={loading}
-                        className={"h-64 sm:h-80"}
+                        className={`h-64 sm:h-80 ${imageClasses}`}
                     />
                     <div>
                         <Heading h3>{product.title}</Heading>

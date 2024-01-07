@@ -26,7 +26,7 @@ export function Paragraph({
     ...rest
 }: ParagraphInterface) {
     const classes = className(rest.className, "text-dark-gray", {
-        "text-4xl md:text-5xl": description,
+        "mb-2": description,
         "text-2xl": username,
         "text-xl md:text-2xl mb-2": price,
         "text-lg md:text-xl mb-2": discountedPrice,

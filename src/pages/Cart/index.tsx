@@ -1,5 +1,5 @@
 import { useCart } from "../../hooks";
-import { ProductCard, Button } from "../../components";
+import { ProductCard, Button, Paragraph } from "../../components";
 import { Link } from "react-router-dom";
 
 export function CartPage() {
@@ -13,25 +13,33 @@ export function CartPage() {
 
     return (
         <>
-            <section>
+            <section className="mb-4">
                 {cart.map((cartItem) => {
                     return (
-                        <div key={cartItem.id}>
+                        <div key={cartItem.id} className="mb-2">
                             <ProductCard
                                 product={cartItem}
                                 loading={false}
-                                className="flex"
+                                className="flex gap-4 border border-gray-300 rounded-md"
+                                imageClasses="h-40 w-40"
                             />
                         </div>
                     );
                 })}
             </section>
-            <section>
-                Price: {totalPrice} Quantity: {totalQuantity}
+            <section className="flex flex-col">
+                <Paragraph price>Total Price: {totalPrice} kr</Paragraph>
+                <Paragraph price>Total Quantity: {totalQuantity}</Paragraph>
             </section>
-            <Link to="/checkout">
-                <Button primary>Checkout</Button>
-            </Link>
+            {cart.length === 0 ? (
+                <Paragraph description>
+                    Your cart is empty. Please add some products.
+                </Paragraph>
+            ) : (
+                <Link to="/checkout">
+                    <Button primary>Checkout</Button>
+                </Link>
+            )}
         </>
     );
 }

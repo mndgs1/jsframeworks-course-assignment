@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Button } from "../../components";
+import { Button, Paragraph } from "../../components";
 import { useCart } from "../../hooks";
 
 export function CheckoutPage() {
@@ -7,6 +7,7 @@ export function CheckoutPage() {
 
     return (
         <>
+            <Paragraph description>Payment info etc...</Paragraph>
             <Link to="/checkout/success">
                 <Button
                     primary

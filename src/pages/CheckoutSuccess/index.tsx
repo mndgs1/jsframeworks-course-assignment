@@ -5,7 +5,7 @@ export function CheckoutSuccessPage() {
     return (
         <>
             <Heading h1>Order Succesful</Heading>
-            <Paragraph>Yipii ka yeah mothafucka</Paragraph>
+            <Paragraph>Thank you for your purchase</Paragraph>
             <Link to="/">
                 <Button primary>Back to Home</Button>
             </Link>
